@@ -13,6 +13,7 @@ repositories {
 
 dependencies {
     implementation("dev.klepto.kweb3:kweb3:1.0.0")
+    implementation("org.web3j:core:4.9.7")
 
     testImplementation(kotlin("test"))
 }
