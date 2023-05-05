@@ -2,20 +2,26 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
     kotlin("jvm") version "1.8.0"
+    id("maven-publish")
 }
 
-group = "dev.klepto"
-version = "1.0-SNAPSHOT"
+group = "dev.klepto.kweb3"
+version = "1.0.0"
 
 repositories {
     mavenCentral()
+    maven("https://jitpack.io")
 }
 
 dependencies {
-    implementation("dev.klepto.kweb3:kweb3:1.0.0")
-    implementation("org.web3j:core:4.9.7")
+    implementation("com.github.klepto:kweb3:d52c74ba03")
 
     testImplementation(kotlin("test"))
+}
+
+java {
+    withJavadocJar()
+    withSourcesJar()
 }
 
 tasks.test {
