@@ -1,3 +1,4 @@
+import org.jetbrains.kotlin.gradle.plugin.mpp.pm20.util.archivesName
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
@@ -18,6 +19,18 @@ dependencies {
     implementation("org.web3j:core:4.9.4")
 
     testImplementation(kotlin("test"))
+}
+
+publishing {
+    publications {
+        create<MavenPublication>("maven") {
+            groupId = "dev.klepto.kweb3"
+            artifactId = "kweb3-extensions"
+            version = "1.0.0"
+
+            from(components["java"])
+        }
+    }
 }
 
 java {
