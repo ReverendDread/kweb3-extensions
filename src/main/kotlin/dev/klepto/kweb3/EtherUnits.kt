@@ -45,7 +45,7 @@ enum class EtherUnits(
 
     companion object {
 
-        private val unitCache = mutableMapOf<Int, BigDecimal>()
+        private val unitCache = ConcurrentHashMap<Int, BigDecimal>()
 
         fun fromWei(number: String, unit: EtherUnits): BigDecimal {
             return fromWei(number.toBigDecimal(), unit)
