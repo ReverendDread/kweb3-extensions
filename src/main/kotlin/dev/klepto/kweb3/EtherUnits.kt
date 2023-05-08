@@ -3,6 +3,7 @@ package dev.klepto.kweb3
 import dev.klepto.kweb3.abi.type.Uint
 import java.math.BigDecimal
 import java.math.BigInteger
+import java.util.concurrent.ConcurrentHashMap
 
 /**
  * @project croswap-api
