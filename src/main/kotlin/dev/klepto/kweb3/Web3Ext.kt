@@ -1,7 +1,10 @@
 package dev.klepto.kweb3
 
 import dev.klepto.kweb3.abi.type.Address
+import dev.klepto.kweb3.contract.Contract
 import dev.klepto.kweb3.net.web3j.Web3jClient
+import kotlinx.coroutines.sync.Mutex
+import kotlinx.coroutines.sync.withLock
 
 /**
  * @project kweb3-extensions
@@ -10,3 +13,9 @@ import dev.klepto.kweb3.net.web3j.Web3jClient
 
 val Web3jClient.publicKey: Address
     get() = session.credentials.address.toAddress()
+
+val mutex = Mutex()
+
+suspend inline fun <reified T : Contract> Web3jClient.contractAsync(address: Address): T {
+    return mutex.withLock { contract(T::class.java, address) }
+}
