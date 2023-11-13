@@ -15,7 +15,7 @@ repositories {
 }
 
 dependencies {
-    implementation("com.github.klepto:kweb3:d52c74ba03")
+    implementation("com.github.klepto:kweb3:dea18bef79")
     implementation("org.web3j:core:4.9.4")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.1")
 

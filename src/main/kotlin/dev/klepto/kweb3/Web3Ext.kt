@@ -13,9 +13,3 @@ import kotlinx.coroutines.sync.withLock
 
 val Web3jClient.publicKey: Address
     get() = session.credentials.address.toAddress()
-
-val mutex = Mutex()
-
-suspend inline fun <reified T : Contract> Web3jClient.contractAsync(address: Address): T {
-    return mutex.withLock { contract(T::class.java, address) }
-}
